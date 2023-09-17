@@ -1,0 +1,184 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color:rgb(24, 22, 23);
+}
+header {
+    top: 0;
+    position: fixed;
+    z-index: 9999999;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+    background-color:rgb(24, 22, 23);
+    backdrop-filter: blur(2px); /* Adjust the blur radius as needed */
+    -webkit-backdrop-filter: blur(2px); /* For compatibility with some browsers */
+    transition: 0.3s;
+}
+header.hidden {
+    transform: translateY(-100%);
+}
+nav {
+    height: 60px;
+    width: 1100px;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+}
+.logo-container{
+    font-size: 1.2rem;
+    color: rgb(208, 230, 16);
+}
+.menu-list-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.menu-list-container a{
+    height: 100%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(168, 167, 167);
+    border-bottom: 3px transparent solid;
+}
+.menu-list-container a.active{
+    color: white;
+    border-bottom: 3px rgb(208, 230, 16) solid;
+}
+.anime-outer-container{
+    height:auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+}
+.anime-outer-container.top-anime{
+    margin-top: 80px;
+}
+.anime-inner-container{
+    width: 1100px;
+    height: auto;
+}
+.label{
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: rgb(208, 230, 16);
+}
+.card-container{
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(5,auto);
+    gap: 40px;
+}
+.card{
+    height: 310px;
+    width: 190px;
+}
+.card img{
+    height: 280px;
+    width: 190px;
+    background-color: green;
+    border-radius: 5px;
+}
+.card .card-description{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px;
+    gap: 5px;
+}
+.card-description .title {
+    font-size: 15px;
+    color: rgb(208, 230, 16);
+    width: 190px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-description .year{
+    font-size: 14px;
+    color: rgb(168, 167, 167);
+}
+
+.anime-details-container{
+    height: auto;
+    width: 100%;
+}
+.anime-header-container{
+    height: 500px;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.anime-header-container .title-outer-container{
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-outer-container .title-inner-container{
+    height: 80px;
+    width: 1100px;
+    display: flex;
+    gap: 20px;
+}
+.title-inner-container .poster{
+    height: 300px;
+    width: 220px;
+    border-radius: 5px;
+}
+.title-inner-container .title{
+    height: 80px;
+    width: auto;
+    color: white;
+    font-size: 1.2rem;
+}
+.content-outer-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-inner-container{
+    display: flex;
+    gap: 20px;
+    width: 1100px;
+    height: auto;
+    padding: 20px 0px;
+}
+.content-inner-container .left{
+    height: 100%;
+    width: 220px;
+}
+.content-inner-container .summary{
+    height: 100%;
+    width: 600px;
+    font-size: 14px;
+    color: rgb(196, 196, 196);
+}
+.content-inner-container .more-details{
+    width: 200px;
+    height: 100%;
+}

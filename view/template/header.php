@@ -14,11 +14,15 @@
                 AMS
             </div>
             <div class="menu-list-container">
-                <a href="?page=home" class="active">Home</a>
-                <a href="?page=anime">Anime</a>
-                <a href="?page=manga">Manga</a>
-                <a href="?page=collection">Collection</a>
+                <?php
+                $currentUrl = isset($_GET['page']) ? $_GET['page'] : 'home';
+                ?>
+                <a href="?page=home" class="<?php echo ($currentUrl === 'home') ? 'active' : ''; ?>">Home</a>
+                <a href="?page=anime" class="<?php echo ($currentUrl === 'anime') ? 'active' : ''; ?>">Anime</a>
+                <a href="?page=manga" class="<?php echo ($currentUrl === 'manga') ? 'active' : ''; ?>">Manga</a>
+                <a href="?page=collection" class="<?php echo ($currentUrl === 'collection') ? 'active' : ''; ?>">Collection</a>
             </div>
+            
         </nav>
     </header>
     <script src="view/assets/js/script.js"></script>

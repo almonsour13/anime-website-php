@@ -1,11 +1,11 @@
 <section class="anime-outer-container top-anime">
     <div class="anime-inner-container">
-        <h1 class="label">Top Anime</h1>
+        <h1 class="label">Manga</h1>
             <div class="card-container">
             <?php
             $query = '{
                 Page(page: 1, perPage: 60) {
-                    media(type: ANIME, sort: TRENDING_DESC) {
+                    media(type: MANGA) {
                         id
                         title {
                             romaji
@@ -30,8 +30,9 @@
             }';
 
             $config = new config($query); 
-            
+
             $data = $config->getData();
+
             if (isset($data['errors'])) {
                 echo 'GraphQL Error: ' . print_r($data['errors'], true);
             } else {

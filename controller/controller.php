@@ -11,7 +11,7 @@ class Controller {
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
         }
-        return $this->view->render($page); // You might want to pass some data to the render method
+        return $this->view->render($page); 
     }
 }
 ?>

@@ -38,6 +38,7 @@ nav {
 .logo-container{
     font-size: 1.2rem;
     color: rgb(208, 230, 16);
+    font-family: cursive;
 }
 .menu-list-container{
     height: 100%;
@@ -53,7 +54,7 @@ nav {
     color: rgb(168, 167, 167);
     border-bottom: 3px transparent solid;
 }
-.menu-list-container a.active{
+.menu-list-container a.active,.menu-list-container a:hover{
     color: white;
     border-bottom: 3px rgb(208, 230, 16) solid;
 }
@@ -181,4 +182,12 @@ nav {
 .content-inner-container .more-details{
     width: 200px;
     height: 100%;
+}
+.more-details p{
+    color: white;
+    font-size: 14px;
+}
+.more-details span{
+    color: rgb(208, 230, 16);
+    font-size: 14px;
 }

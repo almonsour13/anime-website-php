@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color:rgb(24, 22, 23);
+    background-color:white;
 }
 header {
     top: 0;
@@ -18,7 +18,7 @@ header {
     align-items: center;
     justify-content: center;
     padding: 0px 10px;
-    background-color:rgb(24, 22, 23);
+    background-color:#f77f00;
     backdrop-filter: blur(2px); /* Adjust the blur radius as needed */
     -webkit-backdrop-filter: blur(2px); /* For compatibility with some browsers */
     transition: 0.3s;
@@ -35,10 +35,59 @@ nav {
     justify-content: space-between;
     position: relative; 
 }
-.logo-container{
+.logo-container a{
     font-size: 1.2rem;
-    color: rgb(208, 230, 16);
+    color: white;
     font-family: cursive;
+}
+.search-container{
+    height:30px;
+    width: 400px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 5px;
+}
+.search-container a{
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-container svg{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+.search-container svg path{
+    fill: #f77f00;
+}
+.search-container input{
+    width: 100%;
+    border: none;
+    margin: 0px 5px;
+}
+.search-container input:focus{
+    outline: none;
+}
+.search-container span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    font-size: .9rem;
+    cursor: pointer;
+    color: #f77f00;
+    opacity: 0;
+}
+.search-container span.show{
+    opacity: 1;
 }
 .menu-list-container{
     height: 100%;
@@ -51,12 +100,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(168, 167, 167);
+    color: rgb(229, 229, 229);
     border-bottom: 3px transparent solid;
+    font-size: 1rem;
 }
 .menu-list-container a.active,.menu-list-container a:hover{
     color: white;
-    border-bottom: 3px rgb(208, 230, 16) solid;
+    border-bottom: 3px white solid;
 }
 .anime-outer-container{
     height:auto;
@@ -76,7 +126,7 @@ nav {
 .label{
     font-size: 1rem;
     text-transform: uppercase;
-    color: rgb(208, 230, 16);
+    color: #f77f00;
 }
 .card-container{
     margin-top: 20px;
@@ -88,14 +138,30 @@ nav {
     gap: 40px;
 }
 .card{
-    height: 310px;
+    height: 340px;
+    width: auto;
+    border: 2px transparent solid;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.card:hover{
+    /* border: 2px #f77f00 solid; */
+}
+.card .poster{
+    height: 280px;
     width: 190px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.card:hover img{
+    transform: scale(1.1);
 }
 .card img{
     height: 280px;
     width: 190px;
     background-color: green;
     border-radius: 5px;
+    transition: 0.5s;
 }
 .card .card-description{
     display: flex;
@@ -105,7 +171,7 @@ nav {
 }
 .card-description .title {
     font-size: 15px;
-    color: rgb(208, 230, 16);
+    color: #f77f00;
     width: 190px;
     white-space: nowrap;
     overflow: hidden;
@@ -152,7 +218,7 @@ nav {
 .title-inner-container .title{
     height: 80px;
     width: auto;
-    color: white;
+    color: #f77f00;
     font-size: 1.2rem;
 }
 .content-outer-container{
@@ -177,17 +243,16 @@ nav {
     height: 100%;
     width: 600px;
     font-size: 14px;
-    color: rgb(196, 196, 196);
+    color: rgb(92, 92, 92);
 }
 .content-inner-container .more-details{
     width: 200px;
     height: 100%;
 }
 .more-details p{
-    color: white;
+    color: rgb(92, 92, 92);
     font-size: 14px;
 }
 .more-details span{
-    color: rgb(208, 230, 16);
-    font-size: 14px;
+    color: #f77f00;
 }

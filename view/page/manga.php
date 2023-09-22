@@ -40,7 +40,9 @@
                     ?>
                     <a href="?page=animeDetails&id=<?php echo $anime['id'] ?>">
                         <div class="card">
+                            <div class="poster">
                             <img src="<?php echo $anime['coverImage']['large'] ?>" alt="<?php echo $anime['title']['romaji'] ?>">
+                            </div>
                             <div class="card-description">
                                 <div class="title">
                                     <?php

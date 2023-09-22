@@ -4,7 +4,7 @@
             <div class="card-container">
             <?php
             $query = '{
-                Page(page: 1, perPage: 60) {
+                Page(page: 1, perPage: 10) {
                     media(type: ANIME, sort: TRENDING_DESC) {
                         id
                         title {
@@ -39,7 +39,10 @@
                     ?>
                     <a href="?page=animeDetails&id=<?php echo $anime['id'] ?>">
                         <div class="card">
+                            <div class="poster">
                             <img src="<?php echo $anime['coverImage']['large'] ?>" alt="<?php echo $anime['title']['romaji'] ?>">
+                            
+                        </div>
                             <div class="card-description">
                                 <div class="title">
                                     <?php

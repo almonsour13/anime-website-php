@@ -1,64 +1,120 @@
 <section class="anime-outer-container top-anime">
-    <div class="anime-inner-container">
-        <h1 class="label">Top Anime</h1>
-            <div class="card-container">
-            <?php
-            $query = '{
-                Page(page: 1, perPage: 10) {
-                    media(type: ANIME, sort: TRENDING_DESC) {
-                        id
-                        title {
-                            romaji
-                            english
-                            native
-                        }
-                        description
-                        genres
-                        episodes
-                        startDate {
-                            year
-                            month
-                            day
-                        }
-                        coverImage {
-                            large
-                        }
-                        status
-                        averageScore
-                    }
-                }
-            }';
+<?php
 
-            $config = new config($query); 
-            
-            $data = $config->getData();
-            if (isset($data['errors'])) {
-                echo 'GraphQL Error: ' . print_r($data['errors'], true);
-            } else {
-                foreach ($data['data']['Page']['media'] as $anime) {
+    $queryAnime = '{
+        Page{
+            anime: media(type: ANIME, sort: TRENDING_DESC) {
+                id
+                title {
+                    romaji
+                    english
+                    native
+                }
+                description
+                genres
+                episodes
+                startDate {
+                    year
+                    month
+                    day
+                }
+                coverImage {
+                    large
+                }
+                status
+                averageScore
+            }
+        }
+    }';
+
+    $config = new config($queryAnime); 
+    $animedata = $config->getData();
+    if (isset($animedata['data'])) {
+        $anime = $animedata['data']['Page']['anime'];
+        echo '<div class="anime-inner-container">'; 
+            echo "<h1 class='label'>Top Anime</h1>";
+            echo '<div class="card-container">';
+                foreach ($anime as $anime) {
                     ?>
                     <a href="?page=animeDetails&id=<?php echo $anime['id'] ?>">
                         <div class="card">
                             <div class="poster">
-                            <img src="<?php echo $anime['coverImage']['large'] ?>" alt="<?php echo $anime['title']['romaji'] ?>">
-                            
-                        </div>
+                                <img src="<?php echo $anime['coverImage']['large'] ?>" alt="<?php echo !empty($anime['title']['english']) ? $anime['title']['english'] : $anime['title']['native'] ?>">
+                            </div>
                             <div class="card-description">
                                 <div class="title">
                                     <?php
-                                    // Display English title if available, otherwise display native title
-                                    echo !empty($anime['title']['english']) ? $anime['title']['english'] : $anime['title']['native'];
+                                     echo !empty($anime['title']['english']) ? $anime['title']['english'] : $anime['title']['native'];
                                     ?>
                                 </div>
-                                <p class="year"><?php echo $anime['startDate']['year'] ?></p>
+                                <p class="year"><?php echo isset($anime['startDate']['year']) ? $anime['startDate']['year'] : 'Year not available'; ?></p>
                             </div>
                         </div>
                     </a>
                     <?php
                 }
+            echo '</div>';
+            echo '<div class="pagination-container" id="pagination-container"></div>';
+        echo '</div>';
+    }
+
+    $queryManga = '{
+        Page{
+            manga: media(type: MANGA, sort: TRENDING_DESC) {
+                id
+                title {
+                    romaji
+                    english
+                    native
+                }
+                description
+                genres
+                chapters
+                startDate {
+                    year
+                    month
+                    day
+                }
+                coverImage {
+                    large
+                }
+                status
+                averageScore
             }
-            ?>
-            </div>
-        </div>
-    </div>
+        }
+    }';
+    $configs = new config($queryManga); 
+            
+    $mangeData = $configs->getData();
+    if (isset($mangeData['data'])) {
+        $manga = $mangeData['data']['Page']['manga'];
+        echo '<div class="anime-inner-container">'; 
+        echo "<h1 class='label'>Top Manga</h1>";
+            echo '<div class="card-container">';
+                foreach ($manga as $anime) {
+                    ?>
+                    <a href="?page=animeDetails&id=<?php echo $anime['id'] ?>">
+                        <div class="card">
+                            <div class="poster">
+                                <img src="<?php echo $anime['coverImage']['large'] ?>" alt="<?php echo !empty($anime['title']['english']) ? $anime['title']['english'] : $anime['title']['native'] ?>">
+                            </div>
+                            <div class="card-description">
+                                <div class="title">
+                                    <?php
+                                    echo !empty($anime['title']['english']) ? $anime['title']['english'] : $anime['title']['native'];
+                                    ?>
+                                </div>
+                                <p class="year"><?php echo isset($anime['startDate']['year']) ? $anime['startDate']['year'] : 'Year not available'; ?></p>
+                            </div>
+                        </div>
+                    </a>
+                    <?php
+                }
+            echo '</div>';
+            echo '<div class="pagination-container" id="pagination-container"></div>';
+        echo '</div>';
+    }else{
+        echo "<div class='no-internet'>No Internet</div>";
+    }
+?>
 </section>

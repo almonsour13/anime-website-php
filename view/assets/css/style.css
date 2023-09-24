@@ -6,7 +6,9 @@
     box-sizing: border-box;
 }
 body{
-    background-color:white;
+    background-color:#ffeeda;
+    height: auto;
+    min-height: 100vh;
 }
 header {
     top: 0;
@@ -41,27 +43,34 @@ nav {
     font-family: cursive;
 }
 .search-container{
-    height:30px;
+    height:35px;
     width: 400px;
     border-radius: 30px;
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0px 5px;
+    padding: 0px 8px;
 }
-.search-container a{
-    height: 25px;
-    width: 25px;
+.search-container form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-container button{
+    height: auto;
+    width: auto;
     background-color: transparent;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
 }
 .search-container svg{
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     cursor: pointer;
 }
 .search-container svg path{
@@ -70,7 +79,7 @@ nav {
 .search-container input{
     width: 100%;
     border: none;
-    margin: 0px 5px;
+    margin: 0px 10px;
 }
 .search-container input:focus{
     outline: none;
@@ -81,7 +90,7 @@ nav {
     justify-content: center;
     height: 25px;
     width: 25px;
-    font-size: .9rem;
+    font-size: 1rem;
     cursor: pointer;
     color: #f77f00;
     opacity: 0;
@@ -108,24 +117,98 @@ nav {
     color: white;
     border-bottom: 3px white solid;
 }
+.no-internet{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f77f00;
+    font-size: 1rem;
+}
+footer{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+    background-color:#f77f00;
+}
+
+
 .anime-outer-container{
+    min-height: 100vh;
     height:auto;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0px 10px;
+    flex-direction: column;
+    margin-bottom: 80px;
+    gap: 40px;
 }
 .anime-outer-container.top-anime{
     margin-top: 80px;
 }
+.anime-outer-container.search-anime{
+    margin-top: 60px;
+}
+.anime-outer-container.search-anime .anime-inner-container{
+    margin-top: 40px;
+}
 .anime-inner-container{
     width: 1100px;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .label{
     font-size: 1rem;
     text-transform: uppercase;
+    color: #f77f00;
+}
+.label.result{
+    font-size: 1.2rem;
+}
+.pagination-container{
+    display: flex;
+    gap: 5px; /* Adjust the gap as needed */
+    align-items: center;
+}
+.pagination-container.all-anime{
+    width: 100%;
+    justify-content: center;
+}
+.pagination-container button{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:5px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+.pagination-container button svg path{
+    fill: #f77f00;
+}
+.pagination-container button.active svg path{
+    fill: white;
+}
+.pagination-container button.active{
+    background-color: #f77f00;
+    color: white;
+}
+.pagination-container div{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #f77f00;
 }
 .card-container{
@@ -135,7 +218,6 @@ nav {
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(5,auto);
-    gap: 40px;
 }
 .card{
     height: 340px;
@@ -151,6 +233,9 @@ nav {
     height: 280px;
     width: 190px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 .card:hover img{
@@ -159,7 +244,6 @@ nav {
 .card img{
     height: 280px;
     width: 190px;
-    background-color: green;
     border-radius: 5px;
     transition: 0.5s;
 }
@@ -224,9 +308,10 @@ nav {
 .content-outer-container{
     width: 100%;
     height: auto;
+    min-height: 300px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    background-color: white;
 }
 .content-inner-container{
     display: flex;
@@ -242,6 +327,15 @@ nav {
 .content-inner-container .summary{
     height: 100%;
     width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.content-inner-container .summary .title{
+    font-size: 1rem;
+    color: #f77f00;
+}
+.content-inner-container .summary p{
     font-size: 14px;
     color: rgb(92, 92, 92);
 }
@@ -255,4 +349,72 @@ nav {
 }
 .more-details span{
     color: #f77f00;
+}
+.anime-review-outer{
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+}
+.anime-review-inner{
+    width: 1100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.anime-review-inner .label-review{
+    font-size: 1rem;
+    height: 40px;
+    width: 100%;
+    color: #f77f00;
+    font-weight: bolder;
+}
+.review-card-container{
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    grid-template-columns: repeat(3,auto);
+    justify-content: space-between;
+    gap: 20px;
+}
+.review-card-container .review-card{
+    width: 350px;
+    height: auto;
+    display: flex;
+    background-color:white;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.review-card-container .review-card:hover{
+    transform: scale(1.05);
+}
+.review-card .user-profile{
+    display: flex;
+    width: 40px;
+    height: 100%;
+}
+.review-card img{
+    height:30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.review-card .review-description{
+    height: 100%;
+    width: 100%;
+}
+.review-card .review-description .user-name{
+    height: 30px;
+    font-size: 1rem;
+    color: #f77f00;
+}
+.review-card .review-description .review{
+    font-size: .8rem;
+    color: rgb(121, 121, 121);
+    font-style: italic;
 }

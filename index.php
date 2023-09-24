@@ -8,5 +8,5 @@ $controller = new Controller($view);
 
 include 'view/template/header.php';
 $controller->handleRequest(); 
-// include 'view/page/home.php'; 
+include 'view/template/footer.php'; 
 ?>
